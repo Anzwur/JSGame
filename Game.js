@@ -1,13 +1,10 @@
-var Game =
-{
-  c : document.getElementById("canvas")
-};
+var Game ={};
 
 
 /**
  * Variables
 **/
-
+Game.c = document.getElementById("canvas");
 var ctx = Game.c.getContext("2d");
 var index = 0;
 var start = 0;
