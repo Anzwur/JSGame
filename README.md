@@ -1,1 +1,1 @@
-# JSGame
+# JSame
