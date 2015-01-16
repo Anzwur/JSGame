@@ -8,7 +8,7 @@ Player.img.onload = function(){
   setInterval(
   function()
   {
-    Player.animate(start, end);
+    Player.animate(Player.animStart, Player.animEnd);
   },
   140);
 };

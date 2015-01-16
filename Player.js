@@ -1,12 +1,12 @@
 var Player = {};
 
-var index = 0;
-var start = 0;
-var end = 0;
+Player.animIndex = 0;
+Player.animStart = 0;
+Player.animEnd = 0;
 Player.x = 0;
 Player.y = 0;
-var vx = 0;
-var vy = 0;
+Player.vx = 0;
+Player.vy = 0;
 Player.img = new Image;
 
 Player.img.src = "res/walk.png";
@@ -15,24 +15,24 @@ Player.animate = function(start, end)
 {
   if(InputHandle.down == true)
   {
-    if(index < end)
+    if(Player.animIndex < end)
     {
-      index = index + 1;
+      Player.animIndex = Player.animIndex + 1;
     }
     else
     {
-      index = start;
+      Player.animIndex = start;
     }
   }
 }
 
 Player.update = function()
 {
-  Player.x += vx;
-  Player.y += vy;
+  Player.x += Player.vx;
+  Player.y += Player.vy;
 }
 
 Player.render = function()
 {
-  Game.ctx.drawImage(Player.img, 32*index, 0, 32, 38, 234, 234, 32, 38);
+  Game.ctx.drawImage(Player.img, 32*Player.animIndex, 0, 32, 38, 234, 234, 32, 38);
 }

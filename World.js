@@ -8,8 +8,8 @@ World.img.src = "res/grass.png";
 
 World.update = function()
 {
-    World.x -= vx;
-    World.y -= vy;
+    World.x -= Player.vx;
+    World.y -= Player.vy;
 }
 
 World.render = function()
