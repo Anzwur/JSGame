@@ -1,35 +1,25 @@
-var Game ={};
-
-
+var Game = {};
 /**
- * Variabless
+ * Variables
 **/
+
 Game.c = document.getElementById("canvas");
 Game.ctx = Game.c.getContext("2d");
-var index = 0;
-var start = 0;
-var end = 0;
-var x = 0;
-var y = 300;
-var vx = 0;
-var vy = 0;
-var img = new Image;
-var ground = new Image;
+
 var down = false;
-
-img.src = "res/test.png";
-ground.src = "res/grass.png";
-
 
 /**
  * Game Logic
 **/
 
-img.onload = function(){
-  run();
-  setInterval(function() {
-    animate(start, end);
-}, 140);
+Player.img.onload = function(){
+  Game.run();
+  setInterval(
+  function()
+  {
+    Player.animate(start, end);
+  },
+  140);
 };
 
 document.addEventListener('keydown', function(event) {
@@ -73,45 +63,17 @@ document.addEventListener('keyup', function(event) {
     down = false;
 });
 
-function animate(start, end)
+Game.update = function()
 {
-  if(down == true)
-  {
-    if(index < end)
-    {
-      index = index + 1;
-    }
-    else
-    {
-      index = start;
-    }
-  }
+  World.update();
+  Player.update();
 }
 
-function update()
+Game.render = function()
 {
-  if(x >= 0 && x <= 468)
-    x+=vx;
-  else if(x <= 0)
-    x = 1;
-  else if(x >= 468)
-  {
-    x = 467;
-  }
-  if(y >= 0 && y <= 468)
-  y+=vy;
-  else if(y <= 0)
-    y = 1;
-  else if(y >= 468)
-  {
-    y = 467;
-  }
-}
-
-function render()
-{
-  Game.ctx.drawImage(ground,0,0,598,458,0,0,500,500);
-  Game.ctx.drawImage(img, 32*index, 0, 32, 38, x, y, 32, 38);
+  Game.ctx.fillRect(0,0,500,500);
+  World.render();
+  Player.render();
 }
 
 
@@ -120,7 +82,7 @@ function render()
 **/
 
 
-function run() {
+Game.run = function() {
     var frameId = 0;
     var lastFrame = Date.now();
 
@@ -131,8 +93,8 @@ function run() {
 
         frameId = window.requestAnimationFrame(loop);
 
-        update();
-        render();
+        Game.update();
+        Game.render();
 
         lastFrame = thisFrame;
     }
