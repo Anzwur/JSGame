@@ -1,12 +1,14 @@
-var Game ={};
+var Game =
+{
+  c : document.getElementById("canvas"),
+  index : 0
+};
 
 
 /**
  * Variables
 **/
-Game.c = document.getElementById("canvas");
-var ctx = Game.c.getContext("2d");
-var index = 0;
+Game.ctx = Game.c.getContext("2d");
 var start = 0;
 var end = 0;
 var x = 0;
@@ -38,25 +40,25 @@ document.addEventListener('keydown', function(event) {
       if(event.keyCode == 37) { //left
           vy = 0;
           vx = -1;
-          index = start = 2;
+          Game.index = start = 2;
           end = 4;
       }
       if(event.keyCode == 38) { //up
           vx = 0;
           vy = -1;
-          index = start = 8;
+          Game.index = start = 8;
           end = 10;
       }
       if(event.keyCode == 39) { //right
           vy = 0;
           vx = 1;
-          index = start = 5;
+          Game.index = start = 5;
           end = 7;
       }
       if(event.keyCode == 40) { //down
           vx = 0;
           vy = 1;
-          index = start = 0;
+          Game.index = start = 0;
           end = 1;
       }
        down = true;
@@ -77,13 +79,13 @@ function animate(start, end)
 {
   if(down == true)
   {
-    if(index < end)
+    if(Game.index < end)
     {
-      index = index + 1;
+      Game.index = index + 1;
     }
     else
     {
-      index = start;
+      Game.index = start;
     }
   }
 }
@@ -110,8 +112,8 @@ function update()
 
 function render()
 {
-  ctx.drawImage(ground,0,0,598,458,0,0,500,500);
-  ctx.drawImage(img, 32*index, 0, 32, 38, x, y, 32, 38);
+  Game.ctx.drawImage(ground,0,0,598,458,0,0,500,500);
+  Game.ctx.drawImage(img, 32*Game.index, 0, 32, 38, x, y, 32, 38);
 }
 
 
