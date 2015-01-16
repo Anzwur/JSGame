@@ -13,7 +13,7 @@ Player.img.src = "res/walk.png";
 
 Player.animate = function(start, end)
 {
-  if(down == true)
+  if(InputHandle.down == true)
   {
     if(index < end)
     {
