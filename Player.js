@@ -34,5 +34,5 @@ Player.update = function()
 
 Player.render = function()
 {
-  Game.ctx.drawImage(Player.img, 32*Player.animIndex, 0, 32, 38, 234, 234, 32, 38);
+  Game.ctx.drawImage(Player.img, 32*Player.animIndex, 0, 32, 38, Game.centerX-16, Game.centerY-19, 32, 38);
 }

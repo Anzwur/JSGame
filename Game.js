@@ -2,6 +2,8 @@ var Game = {};
 
 Game.c = document.getElementById("canvas");
 Game.ctx = Game.c.getContext("2d");
+Game.centerX = 250;
+Game.centerY = 250;
 
 Player.img.onload = function(){
   GameThread.run();
