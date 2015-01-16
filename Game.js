@@ -6,7 +6,7 @@ var Game = {};
 Game.c = document.getElementById("canvas");
 Game.ctx = Game.c.getContext("2d");
 
-var down = false;
+Game.down = false;
 
 /**
  * Game Logic
@@ -23,7 +23,7 @@ Player.img.onload = function(){
 };
 
 document.addEventListener('keydown', function(event) {
-    if(down == false)
+    if(Game.down == false)
     {
       if(event.keyCode == 37) { //left
           vy = 0;
@@ -49,7 +49,7 @@ document.addEventListener('keydown', function(event) {
           index = start = 0;
           end = 1;
       }
-       down = true;
+       Game.down = true;
     }
 });
 
@@ -60,7 +60,7 @@ document.addEventListener('keyup', function(event) {
     if(event.keyCode == 38 || event.keyCode == 40) {
         vy = 0;
     }
-    down = false;
+    Game.down = false;
 });
 
 Game.update = function()
