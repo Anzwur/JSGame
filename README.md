@@ -1,1 +1,1 @@
-#use https://rawgit.com/Anzwur/JSGame/master/index.html to test game
+http://bit.ly/1AVVLHv
