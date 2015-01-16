@@ -1,14 +1,12 @@
-var Game =
-{
-  c : document.getElementById("canvas"),
-  index : 0
-};
+var Game ={};
 
 
 /**
  * Variables
 **/
+Game.c = document.getElementById("canvas");
 Game.ctx = Game.c.getContext("2d");
+var index = 0;
 var start = 0;
 var end = 0;
 var x = 0;
@@ -40,25 +38,25 @@ document.addEventListener('keydown', function(event) {
       if(event.keyCode == 37) { //left
           vy = 0;
           vx = -1;
-          Game.index = start = 2;
+          index = start = 2;
           end = 4;
       }
       if(event.keyCode == 38) { //up
           vx = 0;
           vy = -1;
-          Game.index = start = 8;
+          index = start = 8;
           end = 10;
       }
       if(event.keyCode == 39) { //right
           vy = 0;
           vx = 1;
-          Game.index = start = 5;
+          index = start = 5;
           end = 7;
       }
       if(event.keyCode == 40) { //down
           vx = 0;
           vy = 1;
-          Game.index = start = 0;
+          index = start = 0;
           end = 1;
       }
        down = true;
@@ -79,13 +77,13 @@ function animate(start, end)
 {
   if(down == true)
   {
-    if(Game.index < end)
+    if(index < end)
     {
-      Game.index = index + 1;
+      index = index + 1;
     }
     else
     {
-      Game.index = start;
+      index = start;
     }
   }
 }
@@ -113,7 +111,7 @@ function update()
 function render()
 {
   Game.ctx.drawImage(ground,0,0,598,458,0,0,500,500);
-  Game.ctx.drawImage(img, 32*Game.index, 0, 32, 38, x, y, 32, 38);
+  Game.ctx.drawImage(img, 32*index, 0, 32, 38, x, y, 32, 38);
 }
 
 
