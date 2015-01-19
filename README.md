@@ -1,1 +1,1 @@
-http://bit.ly/1AVVLHv
+http://bit.ly/1AVVLHv - Test game with this link
